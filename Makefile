@@ -1,6 +1,6 @@
 NAME = libhash.a
 
-SRC = hash.c elem.c
+SRC = hash.c elem.c memory.c
 
 OBJ = $(subst .c,.o,$(SRC))
 
@@ -12,9 +12,10 @@ FLAG = -Wall $(INC)
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAG) -c  $(SRC)
+	gcc -O2 $(FLAG) -c  $(SRC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
+	rm *.o
 
 clean :
 	rm  -rf $(OBJ)
@@ -22,4 +23,4 @@ clean :
 fclean : clean
 	rm -rf $(NAME)
 
-re: fclean all clean
+re: fclean all

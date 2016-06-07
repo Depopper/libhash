@@ -1,6 +1,6 @@
 #include "libhash.h"
 
-static int h_get_key(int size, char *key)
+int h_get_key(int size, char *key)
 {
 	int ret;
 	int i;
@@ -22,13 +22,10 @@ t_elem *get_elem_by_name(t_hash *hash, char *key)
 
 	index = h_get_key(hash->size, key);
 	curr_elem = hash->hash_tab[index];
-	ft_putstr(hash->hash_tab[index]->key);
 	if (!curr_elem)
 		return (NULL);
-		ft_putstr("ici");
 	while (curr_elem && ft_strncmp(curr_elem->key, key, ft_strlen(key)))
 		curr_elem = curr_elem->next;
-		ft_putstr("la");
 	if (!curr_elem)
 		return (NULL);
 	return (curr_elem);
@@ -46,26 +43,25 @@ static t_elem *lst_new_elem(char *key, char *value)
 	return (new_elem);
 }
 
-static void lst_push_elem(t_elem *entry, char *key, char *value)
+static void lst_push_elem(t_elem **entry, char *key, char *value)
 {
 	t_elem *curr_elem;
 
-	curr_elem = entry;
-	if (!curr_elem)
+	if (!*entry)
 	{
-		entry = lst_new_elem(key, value);
+		*entry = lst_new_elem(key, value);
 		return ;
 	}
+	curr_elem = *entry;
 	while (curr_elem->next)
 		curr_elem = curr_elem->next;
-	curr_elem = lst_new_elem(key, value);
+	curr_elem->next = lst_new_elem(key, value);
 }
 
 void	h_add_elem(t_hash *hash, char *key, char *value)
 {
-	t_elem *new_entry;
 	int index;
 
 	index = h_get_key(hash->size, key);
-	lst_push_elem(hash->hash_tab[index], key, value);
+	lst_push_elem(&(hash->hash_tab[index]), key, value);
 }
