@@ -1,5 +1,8 @@
 #ifndef LIBHASH_H
 # define LIBHASH_H
+# define VAL_OK 1
+# define NUM_OK 2
+# define LEN_OK 4
 
 # include "libft.h"
 # include <stdio.h>
@@ -27,6 +30,6 @@ void					h_add_elem(t_hash *hash, char *key, char *value);
 t_elem					*get_elem_by_name(t_hash *hash, char *key);
 int						h_get_key(int size, char *key);
 void					h_delete_elem(t_hash *hash, char *key);
-void					h_print(t_hash *hash);
+void					h_print(t_hash *hash, int opts);
 
 #endif

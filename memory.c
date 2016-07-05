@@ -26,6 +26,7 @@ void	h_delete_elem(t_hash *hash, char *key)
 	curr_elem = &(hash->hash_tab[index]);
 	if (!*curr_elem)
 		return ;
+	hash->nb_elem--;
 	if (!(*curr_elem)->next)
 	{
 		free((*curr_elem)->key);

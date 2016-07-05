@@ -1,10 +1,10 @@
 NAME = libhash.a
 
-SRC = hash.c elem.c memory.c
+SRC = hash.c elem.c memory.c h_print.c
 
 OBJ = $(subst .c,.o,$(SRC))
 
-INC = -I./includes/ -I../libft/
+INC = -I./includes/ -I../libft/includes
 FLAG = -Wall $(INC)
 
 .SILENT:
