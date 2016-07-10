@@ -1,6 +1,7 @@
 NAME = libhash.a
 
-SRC = hash.c elem.c memory.c h_print.c
+SRC = h_create_hash.c h_memory.c h_print.c h_lst_push.c h_lst_new.c \
+		h_resolve_key.c h_get_elem_by_key.c h_add_elem.c h_hash_to_tab.c \
 
 OBJ = $(subst .c,.o,$(SRC))
 

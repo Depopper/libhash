@@ -1,7 +1,5 @@
 #include "libhash.h"
 
-
-
 t_hash *create_hash(char *name, int size)
 {
 	t_hash *new_hash;
