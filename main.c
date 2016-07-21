@@ -16,6 +16,6 @@ int main(int ac, char **av, char **env_P)
 	h_print(new_hash, VAL_OK|NUM_OK|LEN_OK);
 	tab = hash_to_tab(new_hash);
 	h_free(&new_hash);
-	ft_puttab(tab);
+//	ft_puttab(tab);
 	ft_free_tab(&tab);
 }

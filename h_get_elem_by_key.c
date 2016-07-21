@@ -1,6 +1,6 @@
 #include "libhash.h"
 
-t_elem *get_elem_by_name(t_hash *hash, char *key)
+t_elem *h_get_elem_by_key(t_hash *hash, char *key)
 {
 	t_elem *curr_elem;
 	int index;
